@@ -8,12 +8,12 @@ import { getModalSize, ModalSize } from '../constant/modal-size';
 
 const topRoot = getTopRoot();
 
-export interface ModalProps extends Omit<AntdModalProps, 'getContainer' | 'destroyOnClose'> {
+export interface ModalProps extends Omit<AntdModalProps, 'destroyOnClose'> {
   children?: ReactNode;
   size?: ModalSize;
 }
 
-const Modal = ({ children, width, size, ...rest }: ModalProps) => {
+const Modal = ({ children, width, size, getContainer, ...rest }: ModalProps) => {
   if (rest.visible !== true) {
     return null;
   }
@@ -21,7 +21,11 @@ const Modal = ({ children, width, size, ...rest }: ModalProps) => {
     <StyleSheetManager target={topRoot}>
       <>
         <TopBodyOverflow />
-        <AntdModal getContainer={getTopBody} width={size ? getModalSize(size) : width} {...rest}>
+        <AntdModal
+          getContainer={getContainer || getTopBody}
+          width={width || getModalSize(size)}
+          {...rest}
+        >
           <ConfigProvider getPopupContainer={getParent}>{children}</ConfigProvider>
         </AntdModal>
       </>

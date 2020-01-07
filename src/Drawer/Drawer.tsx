@@ -8,14 +8,14 @@ import { getModalSize, ModalSize } from '../constant/modal-size';
 
 const topRoot = getTopRoot();
 
-export interface DrawerProps extends Omit<AntdDrawerProps, 'getContainer' | 'destroyOnClose'> {
+export interface DrawerProps extends Omit<AntdDrawerProps, 'destroyOnClose'> {
   /** 点击窗体（整个Drawer）回调 */
   onClickCapture?: (e: MouseEvent) => void;
   children?: ReactNode;
   size?: ModalSize;
 }
 
-const Drawer = ({ children, width, size, ...rest }: DrawerProps) => {
+const Drawer = ({ children, width, size, getContainer, ...rest }: DrawerProps) => {
   if (rest.visible !== true) {
     return null;
   }
@@ -23,7 +23,11 @@ const Drawer = ({ children, width, size, ...rest }: DrawerProps) => {
     <StyleSheetManager target={topRoot}>
       <>
         <TopBodyOverflow />
-        <AntdDrawer getContainer={getTopBody} width={size ? getModalSize(size) : width} {...rest}>
+        <AntdDrawer
+          getContainer={getContainer || getTopBody}
+          width={width || getModalSize(size)}
+          {...rest}
+        >
           <ConfigProvider getPopupContainer={getParent}>{children}</ConfigProvider>
         </AntdDrawer>
       </>
