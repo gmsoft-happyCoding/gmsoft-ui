@@ -1,4 +1,14 @@
-# GMSOFT-UI UI组件库
+# GMSOFT-UI 组件库  
+
+[![NPM](https://img.shields.io/npm/v/gmsoft-ui.svg)](https://www.npmjs.com/package/ui)
+[![DOWNLOAD](https://img.shields.io/npm/dt/gmsoft-ui.svg)](https://www.npmjs.com/package/gmsoft-ui)
+## install
+
+```
+
+  yarn add gmsoft-ui
+
+```
 
 ## Modal 
 
