@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react';
 import { Modal as AntdModal, ConfigProvider } from 'antd';
-import { ModalProps as AntdModalProps } from 'antd/lib/modal';
+import { ModalProps as AntdModalProps, ModalFuncProps } from 'antd/lib/modal';
 import { StyleSheetManager } from 'styled-components';
 import { getTopRoot, getTopBody, getParent } from '../utils/getContainer';
 import TopBodyOverflow from '../components/TopBodyOverflow';
@@ -32,5 +32,21 @@ const Modal = ({ children, width, size, getContainer, ...rest }: ModalProps) => 
     </StyleSheetManager>
   );
 };
+
+type ModalType = 'info' | 'success' | 'error' | 'warning' | 'confirm';
+
+const createModal = (type: ModalType) => (config: ModalFuncProps) => {
+  if (top.eventBus) {
+    top.eventBus.emit(`antd.Modal.${type}` as EventKey, config);
+  } else {
+    AntdModal[type](config);
+  }
+};
+
+Modal.info = createModal('info');
+Modal.success = createModal('success');
+Modal.error = createModal('error');
+Modal.warning = createModal('warning');
+Modal.confirm = createModal('confirm');
 
 export default Modal;
