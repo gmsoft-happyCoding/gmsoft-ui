@@ -17,7 +17,7 @@
   "scripts": {
     "build": "rollup -c",
     "start": "rollup -c -w",
-    "pub": "yarn build && npm publish"
+    "pub": "yarn build && npm publish --access public"
   },
   "peerDependencies": {
     "antd": "^3.19.2",
