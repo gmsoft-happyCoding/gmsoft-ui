@@ -14,7 +14,6 @@ const createMessage = (type: MessageType) => (
   if (top.eventBus) {
     top.eventBus.emit(`antd.message.${type}` as EventKey, content, duration, onClose);
   } else {
-    // @ts-ignore
     message[type](content, duration, onClose);
   }
 };

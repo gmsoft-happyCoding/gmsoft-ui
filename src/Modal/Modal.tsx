@@ -1,3 +1,4 @@
+/* eslint-disable no-restricted-globals */
 import React, { ReactNode } from 'react';
 import { Modal as AntdModal, ConfigProvider } from 'antd';
 import { ModalProps as AntdModalProps, ModalFuncProps } from 'antd/lib/modal';
