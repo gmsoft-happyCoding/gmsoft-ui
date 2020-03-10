@@ -2,7 +2,7 @@ import React, { ReactNode } from 'react';
 import { Drawer as AntdDrawer, ConfigProvider } from 'antd';
 import { DrawerProps as AntdDrawerProps } from 'antd/lib/drawer';
 import { StyleSheetManager } from 'styled-components';
-import { getTopRoot, getTopBody, getParent } from '../utils/getContainer';
+import { getTopRoot, getParent } from '../utils/getContainer';
 import TopBodyOverflow from '../components/TopBodyOverflow';
 import { getModalSize, ModalSize } from '../constant/modal-size';
 
@@ -24,7 +24,7 @@ const Drawer = ({ children, width, size, getContainer, ...rest }: DrawerProps) =
       <>
         <TopBodyOverflow />
         <AntdDrawer
-          getContainer={getContainer || getTopBody}
+          getContainer={getContainer || getTopRoot}
           width={width || getModalSize(size)}
           {...rest}
         >

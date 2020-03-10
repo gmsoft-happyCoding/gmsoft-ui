@@ -1,6 +1,3 @@
-export const getSelfBody = () => document.body;
-export const getTopBody = () => top.document.body;
-
 /**
  * 顶层窗口引用挂载节点
  */
@@ -13,5 +10,5 @@ export function getParent(triggerNode?: Element): HTMLElement {
     return triggerNode.parentNode;
   }
   // fallback
-  return getTopBody();
+  return getTopRoot();
 }

@@ -3,7 +3,7 @@ import React, { ReactNode } from 'react';
 import { Modal as AntdModal, ConfigProvider } from 'antd';
 import { ModalProps as AntdModalProps, ModalFuncProps } from 'antd/lib/modal';
 import { StyleSheetManager } from 'styled-components';
-import { getTopRoot, getTopBody, getParent } from '../utils/getContainer';
+import { getTopRoot, getParent } from '../utils/getContainer';
 import TopBodyOverflow from '../components/TopBodyOverflow';
 import { getModalSize, ModalSize } from '../constant/modal-size';
 
@@ -23,7 +23,7 @@ const Modal = ({ children, width, size, getContainer, ...rest }: ModalProps) => 
       <>
         <TopBodyOverflow />
         <AntdModal
-          getContainer={getContainer || getTopBody}
+          getContainer={getContainer || getTopRoot}
           width={width || getModalSize(size)}
           {...rest}
         >
