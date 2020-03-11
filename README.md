@@ -78,6 +78,9 @@ notification.warning
 
 ## 更新日志  
 
+- ### 1.2.4 
+  2020-3-11
+  - 🐞 getTopRoot 默认选中元素改为 #mount-root
 - ### 1.2.1 
   2020-1-10
   - 🌟 新增 popup function, 提示弹层的调用对应用透明
