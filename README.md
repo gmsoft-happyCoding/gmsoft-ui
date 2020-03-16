@@ -78,10 +78,14 @@ notification.warning
 
 ## 更新日志  
 
+
 - ### 1.3.0 
   2020-3-16
   - 🌟 新增 Empty, 展示空
   - 🌟 新增 TableDescriptions, 表格形式展示详情
+- ### 1.2.4 
+  2020-3-11
+  - 🐞 getTopRoot 默认选中元素改为 #mount-root
 - ### 1.2.1 
   2020-1-10
   - 🌟 新增 popup function, 提示弹层的调用对应用透明
