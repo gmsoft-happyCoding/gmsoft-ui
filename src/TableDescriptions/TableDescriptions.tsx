@@ -17,7 +17,7 @@ import {
   TableDesView,
   TableDesTitle,
 } from './StyledTable';
-import { TableDescriptionsProps } from './interface.d';
+import { TableDescriptionsProps } from './interface';
 import { TOTAL_COLUMNS_NUM } from './configs/columns';
 import getThKeys from './utils/th-keys';
 import getHash from './utils/get-hash';
