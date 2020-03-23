@@ -147,6 +147,9 @@ interface TDRecod {
 ## 更新日志  
 
 
+- ### 1.3.3 
+  2020-3-16
+  - 🐞 notification 添加默认配置 ```style: { wordBreak: 'break-word' }```
 - ### 1.3.0 
   2020-3-16
   - 🌟 新增 Empty, 展示空

@@ -6,9 +6,15 @@ type NotifyType = 'info' | 'success' | 'error' | 'warning';
 
 const createNotify = (type: NotifyType) => (config: ArgsProps) => {
   if (top.eventBus) {
-    top.eventBus.emit(`antd.notification.${type}` as EventKey, config);
+    top.eventBus.emit(`antd.notification.${type}` as EventKey, {
+      style: { wordBreak: 'break-word' },
+      ...config,
+    });
   } else {
-    notification[type](config);
+    notification[type]({
+      style: { wordBreak: 'break-word' },
+      ...config,
+    });
   }
 };
 
