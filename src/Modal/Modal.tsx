@@ -37,11 +37,7 @@ const Modal = ({ children, width, size, getContainer, ...rest }: ModalProps) => 
 type ModalType = 'info' | 'success' | 'error' | 'warning' | 'confirm';
 
 const createModal = (type: ModalType) => (config: ModalFuncProps) => {
-  if (top.eventBus) {
-    top.eventBus.emit(`antd.Modal.${type}` as EventKey, config);
-  } else {
-    AntdModal[type](config);
-  }
+  AntdModal[type](config);
 };
 
 Modal.info = createModal('info');

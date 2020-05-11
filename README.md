@@ -50,10 +50,7 @@
 
 ### popup function
 
-如果 `top.eventBus` 存在
--- 通过 `top.eventBus.emit` 发送相应的事件
-否则
--- 直接调用 `antd` 对应组件的 `function`
+调用 `antd` 对应组件的 `function`
 
 > api 和 antd 一致
 
@@ -142,6 +139,9 @@ interface TDRecod {
 
 ## 更新日志
 
+- ### 1.4.0
+  2020-5-11
+  - 🐞 移除 eventBus
 - ### 1.3.3
   2020-3-16
   - 🐞 notification 添加默认配置 `style: { wordBreak: 'break-word' }`

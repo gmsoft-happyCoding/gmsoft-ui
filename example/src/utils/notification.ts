@@ -6,11 +6,7 @@ import { AxiosError } from 'axios';
 type NoticeType = 'info' | 'success' | 'error' | 'warning';
 
 const createNotify = (type: NoticeType) => (config: ArgsProps) => {
-  if (top.eventBus) {
-    top.eventBus.emit(`antd.notification.${type}` as EventKey, config);
-  } else {
-    notification[type](config);
-  }
+  notification[type](config);
 };
 
 export const info = createNotify('info');
