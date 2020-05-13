@@ -22,10 +22,13 @@ const Demo = () => {
   }, []);
 
   const showError = useCallback(() => {
-    Modal.error({
+    const modal = Modal.error({
       title: 'This is an error message',
-      content: 'some messages...some messages...',
+      content: 'i Will disappear in 3 seconds',
     });
+    setTimeout(() => {
+      modal.destroy();
+    }, 3000);
   }, []);
   const changeTdSize = useCallback(e => {
     setTdSize(e.target.value);
@@ -62,6 +65,7 @@ const Demo = () => {
         <Button onClick={showInfo}>notification.info</Button>
         <Button onClick={showError}>Modal.error</Button>
         <Button onClick={showLoading}>message.loading</Button>
+        <Button onClick={notification.destroy}>closeAllNotification</Button>
         <Drawer visible={v1} onClose={() => setV1(false)}>
           <div>
             <Button onClick={() => setV2(true)}>打开Drawer</Button>

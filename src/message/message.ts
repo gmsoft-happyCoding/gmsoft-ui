@@ -10,9 +10,7 @@ const createMessage = (type: MessageType) => (
   content: Content,
   duration: number = 3,
   onClose?: ConfigOnClose
-) => {
-  message[type](content, duration, onClose);
-};
+) => message[type](content, duration, onClose);
 
 export const info = createMessage('info');
 export const success = createMessage('success');
@@ -26,4 +24,6 @@ export default {
   error,
   warning,
   loading,
+  config: message.config,
+  destory: message.destroy,
 };

@@ -1,15 +1,16 @@
 /* eslint-disable no-restricted-globals */
 import { notification } from 'antd';
 import { ArgsProps } from 'antd/lib/notification';
+import { getTopRoot } from '../utils/getContainer';
 
 type NotifyType = 'info' | 'success' | 'error' | 'warning';
 
-const createNotify = (type: NotifyType) => (config: ArgsProps) => {
+const createNotify = (type: NotifyType) => (config: ArgsProps) =>
   notification[type]({
-    style: { wordBreak: 'break-word' },
     ...config,
+    style: { wordBreak: 'break-word' },
+    getContainer: getTopRoot,
   });
-};
 
 export const info = createNotify('info');
 export const success = createNotify('success');
@@ -21,4 +22,7 @@ export default {
   success,
   error,
   warning,
+  open: notification.open,
+  close: notification.close,
+  destroy: notification.destroy,
 };

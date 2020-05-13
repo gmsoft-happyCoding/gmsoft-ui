@@ -36,14 +36,14 @@ const Modal = ({ children, width, size, getContainer, ...rest }: ModalProps) => 
 
 type ModalType = 'info' | 'success' | 'error' | 'warning' | 'confirm';
 
-const createModal = (type: ModalType) => (config: ModalFuncProps) => {
-  AntdModal[type](config);
-};
+const createModal = (type: ModalType) => (config: ModalFuncProps) =>
+  AntdModal[type]({ getContainer: getTopRoot, ...config });
 
 Modal.info = createModal('info');
 Modal.success = createModal('success');
 Modal.error = createModal('error');
 Modal.warning = createModal('warning');
 Modal.confirm = createModal('confirm');
+Modal.destroyAll = AntdModal.destroyAll;
 
 export default Modal;
