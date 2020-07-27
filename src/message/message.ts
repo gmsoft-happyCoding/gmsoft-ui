@@ -10,7 +10,13 @@ const createMessage = (type: MessageType) => (
   content: Content,
   duration: number = 3,
   onClose?: ConfigOnClose
-) => message[type](content, duration, onClose);
+) => {
+  if (top && top !== self && top.eventBus) {
+    top.eventBus.emit(`antd.message.${type}` as EventKey, content, duration, onClose);
+  } else {
+    message[type](content, duration, onClose);
+  }
+};
 
 export const info = createMessage('info');
 export const success = createMessage('success');

@@ -6891,6 +6891,11 @@ ee-first@1.1.1:
   resolved "https://registry.npm.taobao.org/ee-first/download/ee-first-1.1.1.tgz#590c61156b0ae2f4f0255732a158b266bc56b21d"
   integrity sha1-WQxhFWsK4vTwJVcyoViyZrxWsh0=
 
+eev@^0.1.5:
+  version "0.1.5"
+  resolved "http://192.168.2.10:8081/repository/npm.gm/eev/-/eev-0.1.5.tgz#800c04d450b31972b02660b97182cd28a3058e06"
+  integrity sha512-U7+up/+0JaC+ffyrMicGDzb+j2Q04Fy22tKK1Xh6hHFWdVtXwoBF8M2DwFofwsJzJcs3W3NPDvmxcMak5/iQaA==
+
 ejs@^2.5.7, ejs@^2.6.1:
   version "2.7.4"
   resolved "https://registry.npm.taobao.org/ejs/download/ejs-2.7.4.tgz?cache=0&sync_timestamp=1574560387393&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fejs%2Fdownload%2Fejs-2.7.4.tgz#48661287573dcc53e366c7a1ae52c3a120eec9ba"

@@ -6,6 +6,7 @@ import { Button, Card, Radio } from 'antd';
 import { Router, Route, Switch } from 'react-router-dom';
 import { Drawer, Modal, notification, message, TableDescriptions } from '@gmsoft/ui';
 import { TDRecod } from '../../src/TableDescriptions/interface';
+import './utils/eventBus';
 
 import { stateContainer } from './utils';
 
@@ -107,7 +108,7 @@ const App = () => (
               src={`${
                 get(p1, 'location.pathname', '/iframe-test/todo').split('/iframe-test')[1]
               }${get(p1, 'location.search', '')}`}
-              style={{ width: 1200, height: 800 }}
+              style={{ width: 1200, height: 800, marginTop: 100 }}
             />
           )}
         />

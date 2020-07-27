@@ -138,10 +138,16 @@ interface TDRecod {
 ```
 
 ## 更新日志
+
+- ### 1.6.0
+  2020-7-27
+  - 🐞 恢复 top.eventBus 调用
 - ### 1.5.0
+
   2020-5-13
+
   - 🐞 Modal.method 方法增加返回值
-  - 🐞 Modal.method 渲染容器设置为topRoot
+  - 🐞 Modal.method 渲染容器设置为 topRoot
   - 🌟 导出 Modal, notification, message 的其他方法(destory, config...)
 
 - ### 1.4.0

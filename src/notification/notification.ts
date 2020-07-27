@@ -1,16 +1,22 @@
 /* eslint-disable no-restricted-globals */
 import { notification } from 'antd';
 import { ArgsProps } from 'antd/lib/notification';
-import { getTopRoot } from '../utils/getContainer';
 
 type NotifyType = 'info' | 'success' | 'error' | 'warning';
 
-const createNotify = (type: NotifyType) => (config: ArgsProps) =>
-  notification[type]({
-    ...config,
-    style: { wordBreak: 'break-word' },
-    getContainer: getTopRoot,
-  });
+const createNotify = (type: NotifyType) => (config: ArgsProps) => {
+  if (top && top !== self && top.eventBus) {
+    top.eventBus.emit(`antd.notification.${type}` as EventKey, {
+      style: { wordBreak: 'break-word' },
+      ...config,
+    });
+  } else {
+    notification[type]({
+      style: { wordBreak: 'break-word' },
+      ...config,
+    });
+  }
+};
 
 export const info = createNotify('info');
 export const success = createNotify('success');
