@@ -139,6 +139,9 @@ interface TDRecod {
 
 ## 更新日志
 
+- ### 1.7.0
+  2020-7-31
+  - 🌟 新增 FromToDatePicker
 - ### 1.6.0
   2020-7-27
   - 🐞 恢复 top.eventBus 调用
