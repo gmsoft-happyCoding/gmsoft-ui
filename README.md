@@ -139,6 +139,9 @@ interface TDRecod {
 
 ## 更新日志
 
+- ### 1.8.0
+  2020-8-3
+  - 🌟 新增 AreaSelect
 - ### 1.7.0
   2020-7-31
   - 🌟 新增 FromToDatePicker

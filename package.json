@@ -21,16 +21,18 @@
   },
   "peerDependencies": {
     "antd": "^3.19.2",
+    "axios": "0.18.1",
     "lodash": "^4.17.13",
+    "moment": "^2.24.0",
     "react": "^16.8.0",
     "react-dom": "^16.8.0",
-    "styled-components": "^4.2.0",
-    "moment": "^2.24.0"
+    "styled-components": "^4.2.0"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",
     "@babel/runtime": "^7.0.0",
     "@svgr/rollup": "^2.4.1",
+    "@types/axios": "^0.14.0",
     "@types/jest": "^23.1.5",
     "@types/react": "^16.3.13",
     "@types/react-dom": "^16.0.5",
@@ -38,6 +40,7 @@
     "@typescript-eslint/eslint-plugin": "^1.4.2",
     "@typescript-eslint/parser": "^1.4.2",
     "antd": "3.26.2-custom.0",
+    "axios": "0.18.1",
     "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "9.0.0",
     "babel-jest": "23.6.0",

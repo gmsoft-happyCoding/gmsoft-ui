@@ -1,3 +1,4 @@
+/* eslint-disable indent */
 import React from 'react';
 import styled from 'styled-components';
 
@@ -19,13 +20,15 @@ export const Td = styled.td`
   border-right: 1px solid #e8e8e8;
 `;
 
-export const Label = styled(Td)`
+export const Label = styled.td`
+  border-right: 1px solid #e8e8e8;
   text-align: ${props => props.align};
   vertical-align: ${props => props.valign};
   background-color: #fafafa;
 `;
 
-export const Value = styled(Td)`
+export const Value = styled.td`
+  border-right: 1px solid #e8e8e8;
   text-align: ${props => props.align};
   vertical-align: ${props => props.valign};
 `;

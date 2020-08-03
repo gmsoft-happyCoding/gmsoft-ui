@@ -11,10 +11,13 @@ import {
   message,
   TableDescriptions,
   FromToDatePicker,
+  AreaSelect,
 } from '@gmsoft/ui';
 import { TDRecod } from '../../src/TableDescriptions/interface';
 import './utils/eventBus';
 import { stateContainer } from './utils';
+import { misc } from '@/api';
+import { AreaI } from '../../dist/AreaSelect/typing';
 
 const { Paragraph, Title } = Typography;
 
@@ -68,6 +71,7 @@ const Demo = () => {
   ];
 
   const [fromToDate, setFromToDate] = useState({});
+  const [area, setArea] = useState({} as AreaI);
 
   return (
     <Card title="Demo">
@@ -80,6 +84,9 @@ const Demo = () => {
         <Title level={3}>选择的日期:</Title>
         <Paragraph>{JSON.stringify(fromToDate)}</Paragraph>
         <FromToDatePicker value={fromToDate} onChange={setFromToDate} fromKey="min" toKey="max" />
+        <Title level={3}>选择的地区:</Title>
+        <Paragraph>{JSON.stringify(area)}</Paragraph>
+        <AreaSelect api={misc.districts_get} value={area} onChange={setArea} />
         <Drawer visible={v1} onClose={() => setV1(false)}>
           <div>
             <Button onClick={() => setV2(true)}>打开Drawer</Button>

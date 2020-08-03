@@ -5,3 +5,4 @@ export { default as message } from './message';
 export { default as Empty } from './Empty';
 export { default as TableDescriptions } from './TableDescriptions';
 export { default as FromToDatePicker } from './FromToDatePicker';
+export { default as AreaSelect } from './AreaSelect';
