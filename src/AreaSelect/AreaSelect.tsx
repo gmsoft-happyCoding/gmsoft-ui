@@ -14,7 +14,6 @@ function compatibility(data: any) {
   return data.data || data || [];
 }
 
-
 const Wrap = styled.div`
   & .ant-cascader-menu {
     height: 300px;
@@ -101,7 +100,6 @@ export default React.forwardRef<any, Props>(
      */
     useEffect(() => {
       loadApi({ path: { id: '0' }, cache: true }).then(({ data }) => {
-        /
         const provinceOptions = transform(compatibility(data));
         const chongqing = remove(provinceOptions, (o: Option) => o.label.includes('重庆'));
         provinceOptions.unshift(...chongqing);
