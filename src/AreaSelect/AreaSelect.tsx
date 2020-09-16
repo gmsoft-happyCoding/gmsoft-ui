@@ -6,6 +6,15 @@ import axios from 'axios';
 import { ApiI, AreaI, WithPathOpts } from './typing';
 import convertRESTAPI from '../utils/convertRESTAPI';
 
+/**
+ * 兼容新老接口
+ * 老的数据返回为 data.data
+ */
+function compatibility(data: any) {
+  return data.data || data || [];
+}
+
+
 const Wrap = styled.div`
   & .ant-cascader-menu {
     height: 300px;
@@ -74,8 +83,9 @@ export default React.forwardRef<any, Props>(
 
         loadApi({ path: { id: targetOption.value }, cache: true }).then(({ data }) => {
           targetOption.loading = false;
-          if (data.data && data.data.length > 0) {
-            targetOption.children = transform(data.data);
+
+          if (compatibility(data) && compatibility(data).length > 0) {
+            targetOption.children = transform(compatibility(data));
           } else {
             targetOption.isLeaf = true;
           }
@@ -91,7 +101,8 @@ export default React.forwardRef<any, Props>(
      */
     useEffect(() => {
       loadApi({ path: { id: '0' }, cache: true }).then(({ data }) => {
-        const provinceOptions = transform(data.data);
+        /
+        const provinceOptions = transform(compatibility(data));
         const chongqing = remove(provinceOptions, (o: Option) => o.label.includes('重庆'));
         provinceOptions.unshift(...chongqing);
         setOptions(provinceOptions);
