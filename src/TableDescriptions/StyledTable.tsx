@@ -16,10 +16,6 @@ export const Tr = styled.tr<
   border-bottom: 1px solid #e8e8e8;
 `;
 
-export const Td = styled.td`
-  border-right: 1px solid #e8e8e8;
-`;
-
 export const Label = styled.td`
   border-right: 1px solid #e8e8e8;
   text-align: ${props => props.align};
@@ -33,6 +29,13 @@ export const Value = styled.td`
   vertical-align: ${props => props.valign};
 `;
 
+export const Th = styled.th<
+  React.DetailedHTMLProps<
+    React.ThHTMLAttributes<HTMLTableHeaderCellElement>,
+    HTMLTableHeaderCellElement
+  >
+>``;
+
 export const Table = styled.table<
   React.DetailedHTMLProps<React.TableHTMLAttributes<HTMLTableElement>, HTMLTableElement> & {
     size: 'default' | 'middle' | 'small';
@@ -40,13 +43,15 @@ export const Table = styled.table<
 >`
   width: 100%;
   table-layout: fixed;
-  & ${Tr}:last-child {
+  & tr:last-child {
     border-bottom: none;
   }
-  & ${Tr} ${Td}:last-child {
+  & tr td:last-child,
+  & tr th:last-child {
     border-right: none;
   }
-  & ${Tr} ${Td} {
+  & tr td,
+  & tr th {
     padding: ${props => {
       if (props.size === 'middle') {
         return '12px 24px';
@@ -58,13 +63,6 @@ export const Table = styled.table<
     }};
   }
 `;
-
-export const Th = styled.th<
-  React.DetailedHTMLProps<
-    React.ThHTMLAttributes<HTMLTableHeaderCellElement>,
-    HTMLTableHeaderCellElement
-  >
->``;
 
 export const TableDesTitle = styled.div`
   margin-bottom: 8px;

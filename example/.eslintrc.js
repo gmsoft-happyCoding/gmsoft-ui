@@ -10,14 +10,9 @@ module.exports = {
     },
     useJSXTextNode: true,
   },
-  plugins: ['@typescript-eslint', 'react-hooks', 'import'],
+  plugins: ['@typescript-eslint', 'react-hooks'],
   env: {
     browser: true,
-  },
-  settings: {
-    'import/resolver': {
-      typescript: {},
-    },
   },
   rules: {
     // 变量声明的情况推断不出来, 暂时禁用掉
@@ -63,5 +58,6 @@ module.exports = {
     'import/prefer-default-export': 'off',
     'implicit-arrow-linebreak': 'off',
     'import/no-unresolved': 'off',
+    'import/extensions': 'off',
   },
 };
