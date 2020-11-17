@@ -7,7 +7,7 @@ export const getTopRoot = () => {
   try {
     return (top?.document.querySelector('#mount-root') as HTMLElement) || top.document.body;
   } catch (error) {
-    return top?.document.body;
+    return document.body;
   }
 };
 
