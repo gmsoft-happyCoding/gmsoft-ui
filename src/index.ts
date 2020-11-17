@@ -6,3 +6,4 @@ export { default as Empty } from './Empty';
 export { default as TableDescriptions } from './TableDescriptions';
 export { default as FromToDatePicker } from './FromToDatePicker';
 export { default as AreaSelect } from './AreaSelect';
+export { default as WrapperTable } from './WrapperTable';

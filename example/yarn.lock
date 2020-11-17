@@ -9035,6 +9035,11 @@ hex-color-regex@^1.1.0:
   resolved "http://192.168.2.10:8081/repository/npm.gm/hex-color-regex/-/hex-color-regex-1.1.0.tgz#4c06fccb4602fe2602b3c93df82d7e7dbf1a8a8e"
   integrity sha512-l9sfDFsuqtOqKDsQdqrMRk0U85RZc0RtOR9yPI7mRVOa4FsR/BVnZ0shmQRM96Ji99kYZP/7hn1cedc1+ApsTQ==
 
+history-helper@1.0.2:
+  version "1.0.2"
+  resolved "http://192.168.2.10:8081/repository/npm.gm/history-helper/-/history-helper-1.0.2.tgz#ddde882a657338ff101dbc935fb91a19cf657aac"
+  integrity sha512-sp7xclP/CFO85LcBIcHBuKoOUdnIuCCn8d8WOpp1HvA7jl9fIYqtvuSyzezDu9IIkACD8m2oPRQ8gWSdZh57+g==
+
 history-helper@^1.0.3:
   version "1.0.3"
   resolved "http://192.168.2.10:8081/repository/npm.gm/history-helper/-/history-helper-1.0.3.tgz#10a4acfad6486b818cff5c2ea8b7225beb3d4d42"
@@ -16443,6 +16448,13 @@ scp2-gmsoft@0.3.2:
     glob "~7.0.3"
     lodash "^4.17.11"
     ssh2 "0.8.5"
+
+search-page@^1.17.0:
+  version "1.17.0"
+  resolved "http://192.168.2.10:8081/repository/npm.gm/search-page/-/search-page-1.17.0.tgz#f90260ed7f123af15991f15dec648ec2616aa65d"
+  integrity sha512-uzdNpgFnq431WBgHaF3hIn0dX3UfXZaBJnrgIBA9xl8gj9a9Ir5ooLAd4eyEIz+BFC1uA08q9o+MBye0TUnf8g==
+  dependencies:
+    history-helper "1.0.2"
 
 seek-bzip@^1.0.5:
   version "1.0.5"

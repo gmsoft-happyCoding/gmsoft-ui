@@ -45,6 +45,7 @@
     "redux-actions": "2.6.4",
     "redux-saga": "0.16.2",
     "reselect": "4.0.0",
+    "search-page": "^1.17.0",
     "state-container": "1.1.0",
     "styled-components": "link:../node_modules/styled-components",
     "systemjs": "0.21.5"
