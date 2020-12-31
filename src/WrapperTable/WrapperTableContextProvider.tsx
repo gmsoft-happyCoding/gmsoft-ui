@@ -3,7 +3,7 @@
  * @Author GM20171202
  * @Date 2020-11-11 13:59:45
  * @Last Modified by: GM20171202
- * @Last Modified time: 2020-11-12 17:37:01
+ * @Last Modified time: 2020-12-31 10:23:51
  */
 import React, { ReactNode, useCallback, useEffect, useMemo, useState } from 'react';
 import HistoryHelper from 'history-helper';
@@ -26,6 +26,11 @@ export interface WrapperTableContextProviderProps {
    * */
   activeTabKey?: string;
   /**
+   * 初始化 state.activeTabKey
+   * 优先级小于缓存
+   * */
+  defaultActiveTabKey?: string;
+  /**
    * 初始化 state.tabs
    * 优先级大于缓存
    * */
@@ -38,11 +43,13 @@ const WrapperTableContextProvider = ({
   storeKey,
   storeHistory,
   activeTabKey,
+  defaultActiveTabKey,
   tabs,
 }: WrapperTableContextProviderProps) => {
   const historyHelper = new HistoryHelper(storeKey, storeHistory);
   const [wrapperTableState, setWrapperTableState] = useState<WrapperTableState>(() => ({
-    activeTabKey: activeTabKey || historyHelper.getValue('activeTabKey', undefined),
+    activeTabKey:
+      activeTabKey || historyHelper.getValue('activeTabKey', undefined) || defaultActiveTabKey,
     tabs,
     historyHelper,
   }));
@@ -51,6 +58,14 @@ const WrapperTableContextProvider = ({
       historyHelper.setState({ activeTabKey });
     }
   }, []);
+  useEffect(() => {
+    if (
+      wrapperTableState.historyHelper.getValue('activeTabKey', undefined) !==
+      wrapperTableState.activeTabKey
+    ) {
+      wrapperTableState.historyHelper.setState({ activeTabKey: wrapperTableState.activeTabKey });
+    }
+  }, [wrapperTableState.activeTabKey, wrapperTableState.historyHelper]);
   const setState = useCallback((newState: WrapperTableState) => {
     setWrapperTableState(oldState => ({ ...oldState, ...newState }));
   }, []);

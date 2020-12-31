@@ -7,6 +7,7 @@ import styled from 'styled-components';
 import { Table, Button } from 'antd';
 import { ContentProps } from 'search-page';
 import { WrapperTable } from '@gmsoft/ui';
+import { Link } from 'react-router-dom';
 
 const { WrapperTableTabs, WrapperTableContext } = WrapperTable;
 
@@ -29,6 +30,12 @@ const dataSource = [
     age: 42,
     address: '西湖区湖底公园1号',
   },
+  {
+    title: '操作',
+    dataIndex: 'opt',
+    key: 'opt',
+    render: () => <Link to="/demo1">跳</Link>,
+  },
 ];
 const dataSource1 = [
   {
@@ -43,6 +50,12 @@ const dataSource1 = [
     age: 42,
     address: '西湖区湖底公园1号2',
   },
+  {
+    title: '操作',
+    dataIndex: 'opt',
+    key: 'opt',
+    render: () => <Link to="/demo1">跳</Link>,
+  },
 ];
 const dataSource2 = [
   {
@@ -56,6 +69,12 @@ const dataSource2 = [
     name: '胡彦祖25',
     age: 42,
     address: '西湖区湖底公园1号2',
+  },
+  {
+    title: '操作',
+    dataIndex: 'opt',
+    key: 'opt',
+    render: () => <Link to="/demo1">跳</Link>,
   },
 ];
 
@@ -74,6 +93,12 @@ const columns = [
     title: '住址',
     dataIndex: 'address',
     key: 'address',
+  },
+  {
+    title: '操作',
+    dataIndex: 'opt',
+    key: 'opt',
+    render: () => <Link to="/demo1">跳</Link>,
   },
 ];
 

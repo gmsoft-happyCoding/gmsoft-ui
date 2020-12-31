@@ -22,17 +22,15 @@ const List = () => {
   return <SearchPage>{Content}</SearchPage>;
 };
 
-export default (props: RouteComponentProps<any>) => {
-  return (
-    <WrapperTableContextProvider
-      tabs={[
-        { key: '1', title: '待处理' },
-        { key: '2', title: '被禁言' },
-        { key: '3', title: '可撤回', status: 'disable' },
-      ]}
-      activeTabKey="2"
-    >
-      <List />
-    </WrapperTableContextProvider>
-  );
-};
+export default (props: RouteComponentProps<any>) => (
+  <WrapperTableContextProvider
+    tabs={[
+      { key: '1', title: '待处理' },
+      { key: '2', title: '被禁言' },
+      { key: '3', title: '可撤回', status: 'disable' },
+    ]}
+    defaultActiveTabKey="2"
+  >
+    <List />
+  </WrapperTableContextProvider>
+);
