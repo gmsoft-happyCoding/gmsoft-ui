@@ -2,6 +2,7 @@
 import { message } from 'antd';
 import { ReactNode } from 'react';
 import { ConfigOnClose } from 'antd/lib/message';
+import { getTopRoot } from '../utils/getContainer';
 
 type MessageType = 'info' | 'success' | 'error' | 'warning' | 'loading';
 type Content = string | ReactNode;
@@ -11,11 +12,12 @@ const createMessage = (type: MessageType) => (
   duration: number = 3,
   onClose?: ConfigOnClose
 ) => {
-  if (top && top !== self && top.eventBus) {
-    top.eventBus.emit(`antd.message.${type}` as EventKey, content, duration, onClose);
-  } else {
-    message[type](content, duration, onClose);
+  if (top !== self) {
+    message.config({
+      getContainer: getTopRoot,
+    });
   }
+  message[type](content, duration, onClose);
 };
 
 export const info = createMessage('info');

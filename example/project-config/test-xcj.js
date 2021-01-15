@@ -5,7 +5,7 @@ module.exports = {
   envs: {
     REACT_APP_GENERATE_SOURCEMAP: true,
     // 应用部署的域名和子路径
-    REACT_APP_PUBLIC_URL: '//www.test.com/example',
+    REACT_APP_PUBLIC_URL: '',
     // 组件注册服务器
     REACT_APP_COMPONENT_REGISTRY_SERVER: '//registry.gmsofttest.com',
     // 网关服务器base路径

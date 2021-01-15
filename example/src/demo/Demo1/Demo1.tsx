@@ -22,15 +22,15 @@ export default () => {
 
   const showInfo = useCallback(() => {
     notification.info({
-      message: '请求错误!',
-      description: 'hello',
+      message: <p>请求错误!</p>,
+      description: <p>hello</p>,
     });
   }, []);
 
   const showError = useCallback(() => {
     const modal = Modal.error({
-      title: 'This is an error message',
-      content: 'i Will disappear in 3 seconds',
+      title: <p>This is an error message</p>,
+      content: <p>i Will disappear in 3 seconds</p>,
     });
     setTimeout(() => {
       modal.destroy();
@@ -41,7 +41,7 @@ export default () => {
   }, []);
 
   const showLoading = useCallback(() => {
-    message.loading('loading');
+    message.loading(<p>loading</p>);
   }, []);
 
   const tdData: TDRecod[] = [
