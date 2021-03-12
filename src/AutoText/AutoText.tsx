@@ -2,7 +2,7 @@
  * @Author: Gmsoft - WeiHong Ran
  * @Date: 2021-03-11 17:23:37
  * @LastEditors: Gmsoft - WeiHong Ran
- * @LastEditTime: 2021-03-12 11:03:27
+ * @LastEditTime: 2021-03-12 11:11:14
  * @Description: Nothing
  */
 import React from 'react';
@@ -29,7 +29,7 @@ interface Prop {
   /** 数据对象的目标键名 */
   keyName?: string;
   /** 为空时的占位字符，默认：-- */
-  defCharacter: string;
+  defCharacter?: string;
 }
 
 export default function AutoText(props: Prop) {
