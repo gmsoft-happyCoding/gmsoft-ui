@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React, { ReactNode, useCallback, useEffect, useState } from 'react';
 import { Drawer as AntdDrawer, ConfigProvider } from 'antd';
 import { DrawerProps as AntdDrawerProps } from 'antd/lib/drawer';
 import { StyleSheetManager } from 'styled-components';
@@ -16,7 +16,18 @@ export interface DrawerProps extends Omit<AntdDrawerProps, 'destroyOnClose'> {
 }
 
 const Drawer = ({ children, width, size, getContainer, ...rest }: DrawerProps) => {
-  if (rest.visible !== true) {
+  const [load, setLoad] = useState(false);
+  useEffect(() => {
+    if (rest.visible) {
+      setLoad(true);
+    }
+  }, [rest.visible]);
+  const afterVisibleChange = useCallback(v => {
+    if (!v) {
+      setLoad(false);
+    }
+  }, []);
+  if (!load) {
     return null;
   }
   return (
@@ -26,6 +37,7 @@ const Drawer = ({ children, width, size, getContainer, ...rest }: DrawerProps) =
         <AntdDrawer
           getContainer={getContainer || getTopRoot}
           width={width || getModalSize(size)}
+          afterVisibleChange={afterVisibleChange}
           {...rest}
         >
           <ConfigProvider getPopupContainer={getParent}>{children}</ConfigProvider>
