@@ -48,7 +48,7 @@ export default ({
     [wrapperState]
   );
 
-  const tabList = parseTabList(children, wrapperState?.tabs || []);
+  const tabList = parseTabList({ children, tabs: wrapperState?.tabs || [] });
   if (isNil(wrapperState?.tabs) || tabList.length === 0) {
     return null;
   }
