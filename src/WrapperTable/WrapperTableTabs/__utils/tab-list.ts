@@ -15,12 +15,10 @@ export const parseTabList = ({
   toArray(children).map((node: React.ReactElement<TableProps<any>> & { tabKey?: string }) => {
     if (React.isValidElement(node)) {
       let key: undefined | string;
-      if (node.tabKey) {
-        key = node.tabKey;
-      } else if (node.key !== undefined) {
+      if (node.key !== undefined) {
         key = String(node.key);
       }
-      if (!key || tabs.find(tabState => tabState.key === key)?.status === 'hide') {
+      if (!key || !tabs.length || tabs.find(tabState => tabState.key === key)?.status === 'hide') {
         return;
       }
       tabList.push({
