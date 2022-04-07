@@ -1,6 +1,6 @@
 {
   "name": "@gmsoft/ui",
-  "version": "1.13.4",
+  "version": "1.13.5",
   "description": "gmsoft-UI组件库",
   "repository": "gmsoft-happyCoding/gmsoft-ui",
   "author": "dou <35251293+bdDandelion@users.noreply.github.com>",
@@ -20,14 +20,14 @@
     "pub": "yarn build && npm publish --access public"
   },
   "peerDependencies": {
+    "@gmsoft/tools": "^1.5.4",
     "antd": "^3.19.2",
     "axios": "0.18.1",
     "lodash": "^4.17.13",
     "moment": "^2.24.0",
     "react": "^16.8.0",
     "react-dom": "^16.8.0",
-    "styled-components": "^4.2.0",
-    "@gmsoft/tools": "^1.5.4"
+    "styled-components": "^4.2.0"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",
@@ -84,7 +84,7 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "history-helper": "^1.0.4",
-    "@gmsoft/tools": "^1.5.4"
+    "@gmsoft/tools": "^1.5.4",
+    "history-helper": "^1.0.4"
   }
 }
