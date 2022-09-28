@@ -8,6 +8,7 @@
 import React from 'react';
 import { Typography } from 'antd';
 import { get } from 'lodash';
+import { CSSProperties } from 'styled-components';
 
 const { Paragraph } = Typography;
 
@@ -30,6 +31,7 @@ interface Prop {
   keyName?: string;
   /** 为空时的占位字符，默认：-- */
   defCharacter?: string;
+  style?: CSSProperties;
 }
 
 export default function AutoText(props: Prop) {
@@ -43,10 +45,11 @@ export default function AutoText(props: Prop) {
     content,
     children,
     defCharacter = '--',
+    style = {},
   } = props;
   return (
     <Paragraph
-      style={{ marginBottom: zeroMargin ? 0 : '1em' }}
+      style={{ marginBottom: zeroMargin ? 0 : '1em', ...style }}
       ellipsis={{ rows, expandable }}
       copyable={copyable}
     >
