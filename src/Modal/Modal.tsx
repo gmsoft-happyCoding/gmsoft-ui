@@ -1,11 +1,10 @@
-/* eslint-disable no-restricted-globals */
 import React, { ReactNode } from 'react';
 import { Modal as AntdModal, ConfigProvider } from 'antd';
 import { ModalProps as AntdModalProps, ModalFuncProps } from 'antd/lib/modal';
-import { StyleSheetManager } from 'styled-components';
 import { getTopRoot, getParent } from '../utils/getContainer';
 import TopBodyOverflow from '../components/TopBodyOverflow';
 import { getModalSize, ModalSize } from '../constant/modal-size';
+import InjectStyleToTop from '../components/InjectStyleToTop';
 
 const topRoot = getTopRoot();
 
@@ -19,18 +18,16 @@ const Modal = ({ children, width, size, getContainer, ...rest }: ModalProps) => 
     return null;
   }
   return (
-    <StyleSheetManager target={topRoot}>
-      <>
-        <TopBodyOverflow />
-        <AntdModal
-          getContainer={getContainer || getTopRoot}
-          width={width || getModalSize(size)}
-          {...rest}
-        >
-          <ConfigProvider getPopupContainer={getParent}>{children}</ConfigProvider>
-        </AntdModal>
-      </>
-    </StyleSheetManager>
+    <InjectStyleToTop target={topRoot}>
+      <TopBodyOverflow />
+      <AntdModal
+        getContainer={getContainer || getTopRoot}
+        width={width || getModalSize(size)}
+        {...rest}
+      >
+        <ConfigProvider getPopupContainer={getParent}>{children}</ConfigProvider>
+      </AntdModal>
+    </InjectStyleToTop>
   );
 };
 

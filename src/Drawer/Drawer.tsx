@@ -1,10 +1,10 @@
 import React, { ReactNode, useCallback, useEffect, useState } from 'react';
 import { Drawer as AntdDrawer, ConfigProvider } from 'antd';
 import { DrawerProps as AntdDrawerProps } from 'antd/lib/drawer';
-import { StyleSheetManager } from 'styled-components';
 import { getTopRoot, getParent } from '../utils/getContainer';
 import TopBodyOverflow from '../components/TopBodyOverflow';
 import { getModalSize, ModalSize } from '../constant/modal-size';
+import InjectStyleToTop from '../components/InjectStyleToTop';
 
 const topRoot = getTopRoot();
 
@@ -31,19 +31,17 @@ const Drawer = ({ children, width, size, getContainer, ...rest }: DrawerProps) =
     return null;
   }
   return (
-    <StyleSheetManager target={topRoot}>
-      <>
-        <TopBodyOverflow />
-        <AntdDrawer
-          getContainer={getContainer || getTopRoot}
-          width={width || getModalSize(size)}
-          afterVisibleChange={afterVisibleChange}
-          {...rest}
-        >
-          <ConfigProvider getPopupContainer={getParent}>{children}</ConfigProvider>
-        </AntdDrawer>
-      </>
-    </StyleSheetManager>
+    <InjectStyleToTop target={topRoot}>
+      <TopBodyOverflow />
+      <AntdDrawer
+        getContainer={getContainer || getTopRoot}
+        width={width || getModalSize(size)}
+        afterVisibleChange={afterVisibleChange}
+        {...rest}
+      >
+        <ConfigProvider getPopupContainer={getParent}>{children}</ConfigProvider>
+      </AntdDrawer>
+    </InjectStyleToTop>
   );
 };
 
