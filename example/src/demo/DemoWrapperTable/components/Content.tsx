@@ -6,7 +6,7 @@ import React, { useCallback, useContext, useEffect } from 'react';
 import styled from 'styled-components';
 import { Table, Button } from 'antd';
 import { ContentProps } from 'search-page';
-import { WrapperTable } from '@gmsoft/ui';
+import { Money, WrapperTable } from '@gmsoft/ui';
 import { Link } from 'react-router-dom';
 
 const { WrapperTableTabs, WrapperTableContext } = WrapperTable;
@@ -125,6 +125,7 @@ const Content = ({ data, forceUpdate, loading, filters, pagination }: ContentPro
             设置tab标题
           </Button>
           <Button>打印</Button>
+          <Money unit="万元">124254</Money>
         </BtnBar>
       }
     >

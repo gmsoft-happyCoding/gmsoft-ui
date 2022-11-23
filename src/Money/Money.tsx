@@ -14,6 +14,7 @@ import { isNil } from 'ramda';
 
 type Size = 'normal' | 'large' | 'small';
 const Layout = styled.div<{ size: Size; color: string }>`
+  display: inline-block;
   .ant-statistic-content-prefix,
   .ant-statistic-content-value {
     font-size: ${props => {
@@ -41,6 +42,9 @@ interface Props {
   children?: string | number;
   /** 占位符 */
   defCharacter?: string;
+  style?: React.CSSProperties;
+  /** 单位，如果有的话，将附加在末尾，并带有括号 */
+  unit?: string;
 }
 
 function Money(props: Props) {
@@ -51,6 +55,8 @@ function Money(props: Props) {
     color = 'rgb(220 19 19 / 85%)',
     children,
     defCharacter = '--',
+    style,
+    unit,
   } = props;
 
   if (isNil(children) && isNil(amount)) {
@@ -58,8 +64,13 @@ function Money(props: Props) {
   }
 
   return (
-    <Layout size={size} color={color}>
-      <Statistic prefix="￥" value={amount || +children!} precision={precision} />
+    <Layout size={size} color={color} style={style}>
+      <Statistic
+        prefix="￥"
+        value={amount || +children!}
+        precision={precision}
+        suffix={unit ? `（${unit}）` : null}
+      />
     </Layout>
   );
 }
