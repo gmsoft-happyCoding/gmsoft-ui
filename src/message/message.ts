@@ -41,4 +41,5 @@ export default {
   loading,
   config: message.config,
   destory: message.destroy,
+  destroy: message.destroy,
 };
