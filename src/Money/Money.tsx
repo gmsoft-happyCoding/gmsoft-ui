@@ -16,7 +16,8 @@ type Size = 'normal' | 'large' | 'small';
 const Layout = styled.div<{ size: Size; color: string }>`
   display: inline-block;
   .ant-statistic-content-prefix,
-  .ant-statistic-content-value {
+  .ant-statistic-content-value,
+  .ant-statistic-content-suffix {
     font-size: ${props => {
       const { size } = props;
       return {
