@@ -46,6 +46,8 @@ interface Props {
   style?: React.CSSProperties;
   /** 单位，如果有的话，将附加在末尾，并带有括号 */
   unit?: string;
+  /** 前置货币符号，默认为：￥ */
+  prefix?: string;
 }
 
 function Money(props: Props) {
@@ -58,6 +60,7 @@ function Money(props: Props) {
     defCharacter = '--',
     style,
     unit,
+    prefix = '￥',
   } = props;
 
   if (isNil(children) && isNil(amount)) {
@@ -67,7 +70,7 @@ function Money(props: Props) {
   return (
     <Layout size={size} color={color} style={style}>
       <Statistic
-        prefix="￥"
+        prefix={prefix}
         value={amount || +children!}
         precision={precision}
         suffix={unit ? `（${unit}）` : null}
