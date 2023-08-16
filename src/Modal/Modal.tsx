@@ -33,8 +33,12 @@ const Modal = ({ children, width, size, getContainer, ...rest }: ModalProps) => 
 
 type ModalType = 'info' | 'success' | 'error' | 'warning' | 'confirm';
 
-const createModal = (type: ModalType) => (config: ModalFuncProps) =>
-  AntdModal[type]({ getContainer: getTopRoot, ...config });
+const createModal = (type: ModalType) => ({ content, ...restConfig }: ModalFuncProps) =>
+  AntdModal[type]({
+    ...restConfig,
+    getContainer: getTopRoot,
+    content: <ConfigProvider getPopupContainer={getParent}>{content}</ConfigProvider>,
+  });
 
 Modal.info = createModal('info');
 Modal.success = createModal('success');
