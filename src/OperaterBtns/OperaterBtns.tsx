@@ -23,6 +23,8 @@ const LinkBtn = styled.div`
 `;
 interface Props {
   children?: React.ReactNode;
+  /** 至多展示几个操作项，超过这个数量将归入下拉菜单，默认：3 */
+  defaultShowCount?: number;
 }
 
 function getMoreMenu(moreChild: React.ReactNode[]) {
@@ -40,7 +42,7 @@ function getMoreMenu(moreChild: React.ReactNode[]) {
  * Usage: 只需要使用组件将操作部分的按钮包裹起来即可，不要在按钮组外再包裹其他容器，包括Fragment,否则组件遍历计算按钮个数将会出错
  */
 export default function OperaterBtns(props: Props) {
-  const { children } = props;
+  const { children, defaultShowCount = 3 } = props;
   const allChilds = React.Children.map(children, child => child);
 
   // 如果菜单项数量低于三个（含）则直接渲染
@@ -48,13 +50,13 @@ export default function OperaterBtns(props: Props) {
   let prevChild: Array<React.ReactNode> = [];
   let moreChild: Array<React.ReactNode> = [];
   if (isArray(allChilds)) {
-    if (allChilds.length <= 3) {
-      // 菜单项小于等于三个，直接渲染
-      prevChild = allChilds.slice(0, 3);
+    if (allChilds.length <= defaultShowCount) {
+      // 菜单项小于等于defaultShowCount个，直接渲染
+      prevChild = allChilds.slice(0, defaultShowCount);
     } else {
-      // 多于三个，渲染前面两个，剩余的child加入更多选项豪华套餐，由menu接管
-      prevChild = allChilds.slice(0, 2);
-      moreChild = allChilds.slice(2);
+      // 多于defaultShowCount个，渲染前面 defaultShowCount - 1 个，剩余的child加入更多选项豪华套餐，由menu接管
+      prevChild = allChilds.slice(0, defaultShowCount - 1);
+      moreChild = allChilds.slice(defaultShowCount - 1);
     }
   }
 
