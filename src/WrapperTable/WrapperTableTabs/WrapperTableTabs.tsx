@@ -7,7 +7,7 @@
  */
 import React, { ReactNode, useCallback, useContext } from 'react';
 import { Tabs } from 'antd';
-import { isNil } from 'lodash';
+import isNil from 'lodash/isNil';
 import { TabsProps } from 'antd/es/tabs';
 
 import WrapperTableContext from '../WrapperTableContext';

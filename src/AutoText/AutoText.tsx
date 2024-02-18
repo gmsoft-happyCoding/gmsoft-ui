@@ -7,7 +7,7 @@
  */
 import React from 'react';
 import { Typography } from 'antd';
-import { get } from 'lodash';
+import get from 'lodash/get';
 import { CSSProperties } from 'styled-components';
 
 const { Paragraph } = Typography;

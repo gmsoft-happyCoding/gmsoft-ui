@@ -1,4 +1,5 @@
 import { AxiosPromise, AxiosRequestConfig } from 'axios';
+import { LEVEL } from './Level';
 
 type Extend = { cache?: boolean };
 
@@ -23,4 +24,21 @@ export interface AreaI {
   province: IdAndName;
   city?: IdAndName;
   county?: IdAndName;
+}
+
+export interface AreaDataI {
+  id: string;
+  pid: string;
+  code: string;
+  level: LEVEL;
+  name: string;
+}
+
+export interface OptionI {
+  value: string;
+  label: string;
+  disabled?: boolean;
+  level: LEVEL;
+  isLeaf: boolean;
+  children?: OptionI[];
 }

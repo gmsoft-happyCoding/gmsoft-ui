@@ -1,6 +1,7 @@
 import { ReactNode } from 'react';
-import { isNil, isNumber, isObject } from 'lodash';
-
+import isNil from 'lodash/isNil';
+import isNumber from 'lodash/isNumber';
+import isObject from 'lodash/isObject';
 import throwError from '../../utils/throw-error';
 
 import { TDRecod, AlignConf } from '../interface';

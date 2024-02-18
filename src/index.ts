@@ -5,6 +5,10 @@
  * @LastEditTime: 2021-03-12 11:01:47
  * @Description: Nothing
  */
+import { getLabel } from './OptionSelect/getLabel';
+import { OptionSelect } from './OptionSelect/OptionSelect';
+
+export { OptionSelect, getLabel };
 export { default as Drawer } from './Drawer';
 export { default as Modal } from './Modal';
 export { default as notification } from './notification';

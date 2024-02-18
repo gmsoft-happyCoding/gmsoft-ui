@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { Cascader } from 'antd';
-import { get, remove } from 'lodash';
+import compact from 'lodash/compact';
+import get from 'lodash/get';
+import remove from 'lodash/remove';
 import styled from 'styled-components';
 import axios from 'axios';
 import { ApiI, AreaI, WithPathOpts } from './typing';
@@ -109,7 +111,7 @@ export default React.forwardRef<any, Props>(
 
     useEffect(() => {
       setInnerValue(
-        [get(value, 'province.id'), get(value, 'city.id'), get(value, 'county.id')].filter(Boolean)
+        compact([(get(value, 'province.id'), get(value, 'city.id'), get(value, 'county.id'))])
       );
     }, [value]);
 

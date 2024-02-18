@@ -8,8 +8,11 @@ import {
   TableDescriptions,
   FromToDatePicker,
   AreaSelect,
+  OptionSelect,
+  getLabel,
 } from '@gmsoft/ui';
 import { misc } from '@/api';
+import { ModeOptions } from '@/enums/Mode';
 import { TDRecod } from '../../../../src/TableDescriptions/interface';
 import { AreaI } from '../../../../dist/AreaSelect/typing';
 
@@ -19,6 +22,10 @@ export default () => {
   const [v1, setV1] = useState(false);
   const [v2, setV2] = useState(false);
   const [tdSize, setTdSize] = useState<any>('default');
+  const [mode, setMode] = useState();
+  const modeOnChange = useCallback(m => {
+    setMode(m);
+  }, []);
 
   const showInfo = useCallback(() => {
     notification.info({
@@ -80,6 +87,13 @@ export default () => {
         <FromToDatePicker value={fromToDate} onChange={setFromToDate} fromKey="min" toKey="max" />
         <Title level={3}>选择的地区:</Title>
         <Paragraph>{JSON.stringify(area)}</Paragraph>
+        <OptionSelect
+          options={ModeOptions}
+          style={{ width: 300 }}
+          value={mode}
+          onChange={modeOnChange}
+        />
+        {getLabel(ModeOptions, mode)}
         <AreaSelect api={misc.districts_get} value={area} onChange={setArea} />
         <Drawer visible={v1} onClose={() => setV1(false)}>
           <div>

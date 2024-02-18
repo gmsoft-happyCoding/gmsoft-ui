@@ -8,7 +8,7 @@
 import React from 'react';
 import { Menu, Dropdown, Icon, Divider } from 'antd';
 import styled from 'styled-components';
-import { uniqueId } from 'lodash';
+import uniqueId from 'lodash/uniqueId';
 import { isArray } from '@gmsoft/tools';
 
 const MoreLink = styled.span`
