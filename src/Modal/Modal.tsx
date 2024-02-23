@@ -25,7 +25,7 @@ const Modal = ({ children, width, size, getContainer, ...rest }: ModalProps) => 
         width={width || getModalSize(size)}
         {...rest}
       >
-        <ConfigProvider getPopupContainer={getParent}>{children}</ConfigProvider>
+        {children && <ConfigProvider getPopupContainer={getParent}>{children}</ConfigProvider>}
       </AntdModal>
     </InjectStyleToTop>
   );
@@ -37,7 +37,9 @@ const createModal = (type: ModalType) => ({ content, ...restConfig }: ModalFuncP
   AntdModal[type]({
     ...restConfig,
     getContainer: getTopRoot,
-    content: <ConfigProvider getPopupContainer={getParent}>{content}</ConfigProvider>,
+    content: content ? (
+      <ConfigProvider getPopupContainer={getParent}>{content}</ConfigProvider>
+    ) : null,
   });
 
 Modal.info = createModal('info');
