@@ -1,0 +1,14 @@
+::-webkit-scrollbar {
+  width: var(--chat-scrollbar-width, 4px);
+}
+::-webkit-scrollbar-track {
+  background: var(--chat-scrollbar-track-background, rgb(239, 239, 239));
+  border-radius: var(--chat-scrollbar-track-border-radius, 2px);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--chat-scrollbar-thumb-background, #939393);
+  border-radius: var(--chat-scrollbar-thumb-border-radius, 10px);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--chat-scrollbar-thumb-hover-background, #333);
+}

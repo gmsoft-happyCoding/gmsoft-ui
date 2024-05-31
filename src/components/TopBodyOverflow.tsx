@@ -9,29 +9,29 @@ import { createGlobalStyle } from 'styled-components';
 export const TOP_BODY_OVERFLOW_HIDDEN_MARK = 'gmsoft-ui-top-body-need-inject-css';
 
 export const setBodyOverflowHidden = (val: boolean) => {
-  window.top.window[TOP_BODY_OVERFLOW_HIDDEN_MARK] = val;
+  if (window.top) window.top[TOP_BODY_OVERFLOW_HIDDEN_MARK] = val;
 };
 
 export const getBodyOverflowHidden = () => {
-  if (top[TOP_BODY_OVERFLOW_HIDDEN_MARK] === undefined) {
+  if (window?.top?.[TOP_BODY_OVERFLOW_HIDDEN_MARK] === undefined) {
     setBodyOverflowHidden(true);
   }
-  return top[TOP_BODY_OVERFLOW_HIDDEN_MARK];
+  return window?.top?.[TOP_BODY_OVERFLOW_HIDDEN_MARK];
 };
 
-const HiddenOverflow = createGlobalStyle`
+const HiddenOverflow = createGlobalStyle<{ scrollbarWidth: number }>`
   body{
     position: relative;
-    width: calc(100% - 17px);
+    width: ${props => `calc(100% - ${props.scrollbarWidth}px)`};
     overflow: hidden;
     touch-action: none;
   }
 `;
 
 /**
- * 标记 禁用top.body 滚动
- * didmount setBodyOverflowHidden(false)
- * willunmount setBodyOverflowHidden(true)
+ * 标记 禁用 top.body 滚动
+ * didMount setBodyOverflowHidden(false)
+ * willUnmount setBodyOverflowHidden(true)
  */
 export const useHiddenOverflow = () => {
   useEffect(() => {
@@ -42,11 +42,17 @@ export const useHiddenOverflow = () => {
   });
 };
 
+function getScrollbarWidth() {
+  return window.top ? window.top?.innerWidth - window.top?.document.body.clientWidth : 0;
+}
+
 export default () => {
   const [visibleProxy] = useState(() => getBodyOverflowHidden());
+
   useHiddenOverflow();
+
   if (visibleProxy) {
-    return <HiddenOverflow />;
+    return <HiddenOverflow scrollbarWidth={getScrollbarWidth()} />;
   }
   return null;
 };

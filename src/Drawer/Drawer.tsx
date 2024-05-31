@@ -32,15 +32,17 @@ const Drawer = ({ children, width, size, getContainer, ...rest }: DrawerProps) =
   }
   return (
     <InjectStyleToTop target={topRoot}>
-      <TopBodyOverflow />
-      <AntdDrawer
-        getContainer={getContainer || getTopRoot}
-        width={width || getModalSize(size)}
-        afterVisibleChange={afterVisibleChange}
-        {...rest}
-      >
-        <ConfigProvider getPopupContainer={getParent}>{children}</ConfigProvider>
-      </AntdDrawer>
+      <>
+        <TopBodyOverflow />
+        <AntdDrawer
+          getContainer={getContainer || getTopRoot}
+          width={width || getModalSize(size)}
+          afterVisibleChange={afterVisibleChange}
+          {...rest}
+        >
+          <ConfigProvider getPopupContainer={getParent}>{children}</ConfigProvider>
+        </AntdDrawer>
+      </>
     </InjectStyleToTop>
   );
 };

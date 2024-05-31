@@ -37,11 +37,11 @@ export default () => {
   const showError = useCallback(() => {
     const modal = Modal.error({
       title: <p>This is an error message</p>,
-      content: <p>i Will disappear in 3 seconds</p>,
+      content: <p>i Will disappear in 10 seconds</p>,
     });
     setTimeout(() => {
       modal.destroy();
-    }, 3000);
+    }, 10000);
   }, []);
   const changeTdSize = useCallback(e => {
     setTdSize(e.target.value);

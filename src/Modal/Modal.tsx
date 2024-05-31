@@ -19,14 +19,16 @@ const Modal = ({ children, width, size, getContainer, ...rest }: ModalProps) => 
   }
   return (
     <InjectStyleToTop target={topRoot}>
-      <TopBodyOverflow />
-      <AntdModal
-        getContainer={getContainer || getTopRoot}
-        width={width || getModalSize(size)}
-        {...rest}
-      >
-        {children && <ConfigProvider getPopupContainer={getParent}>{children}</ConfigProvider>}
-      </AntdModal>
+      <>
+        <TopBodyOverflow />
+        <AntdModal
+          getContainer={getContainer || getTopRoot}
+          width={width || getModalSize(size)}
+          {...rest}
+        >
+          {children && <ConfigProvider getPopupContainer={getParent}>{children}</ConfigProvider>}
+        </AntdModal>
+      </>
     </InjectStyleToTop>
   );
 };
